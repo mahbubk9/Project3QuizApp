@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/logo1"
+    tools:context="com.example.android.project3quizapp.ResultActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#CCFFFFFF"
+
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:id="@+id/resultdiplay"
+            android:layout_height="wrap_content"
+            android:textSize="26sp"
+            android:layout_alignParentTop="true"
+
+            android:fontFamily="sans-serif-light"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:layout_marginLeft="16dp"
+            android:text=""/>
+
+
+
+        <ScrollView
+                 android:layout_width="match_parent"
+                 android:id="@+id/scrollDisplay"
+                 android:layout_below="@id/resultdiplay"
+                 android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/answerdiplay"
+                android:text=""
+
+                />
+        </ScrollView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttongrp"
+            android:layout_below="@id/scrollDisplay"
+            >
+
+
+
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+
+
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+
+                    android:text="Retake"
+
+                    android:id="@+id/retake"
+                    />
+
+            <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/share"
+
+                    android:layout_toRightOf="@id/retake"
+
+                    android:layout_marginLeft="20dp"
+                    android:text="Share "
+                    android:textColor="@color/colorAccent"
+                    />
+            <Button
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:textColor="@color/colorAccent"
+
+                     android:layout_toLeftOf="@id/retake"
+                     android:text="Answers"
+                     android:id="@+id/answers"
+
+                  />
+        </RelativeLayout>
+
+   </RelativeLayout>
+
+
+
+
+</LinearLayout>

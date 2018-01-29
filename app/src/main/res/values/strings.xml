@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Project3QuizApp</string>
+    <string name="welcome">Welcome to the Cricket T20 World Cup Quiz!</string>
+    <string name="hint">Please Enter Your Name.</string>
+    <string name="beginbutton">Begin quiz</string>
+    <string name="result">result</string>
+
+    <string name="q1">1. Which Two Countries Played In The Finals Of The Last T20 World Cup in 2016? </string>
+    <string name="q1r1">South Africa</string>
+    <string name="q1r2">West Indies</string>
+    <string name="q1r3">India</string>
+    <string name="q1r4">England</string>
+    <string name="q1r5">New Zealand</string>
+    <string name="q1r6">Australia</string>
+
+    <string name="q2">2. Who Is The Current Cricket World T20   Champion? </string>
+    <string name="q2r1">South Africa</string>
+    <string name="q2r2">West Indies</string>
+    <string name="q2r3">India</string>
+    <string name="q2r4">Australia</string>
+
+    <string name="q3">3. Who Was The Man Of The Tournament In 2016 World Cup?</string>
+
+    <string name="q4">4. Who Scored The Most Runs In All T20 World Cups? </string>
+    <string name="q4r1">Chris Gayle</string>
+    <string name="q4r2">Virat Kohli</string>
+    <string name="q4r3">DPMD Jayawardene</string>
+    <string name="q4r4">AB de Villiers</string>
+
+    <string name="q5">5. Who Took The Most Wickets In All T20 World Cups? </string>
+    <string name="q5r1">Dale Steyn</string>
+    <string name="q5r2">Lasith Malinga</string>
+    <string name="q5r3">Shahid Afridi</string>
+    <string name="q5r4">Saeed Ajmal</string>
+
+    <string name="q6">6. Who Took The Most Catches In All T20 World Cups? </string>
+    <string name="q6r1">MJ Guptil</string>
+    <string name="q6r2">AB de Villiers</string>
+    <string name="q6r3">DA Warner</string>
+    <string name="q6r4">DJ Bravo</string>
+
+    <string name="q7">7. Who Hit The Most Sixes In All T20 World Cups? </string>
+    <string name="q7r1">Yuvraj Singh</string>
+    <string name="q7r2">SR Watson</string>
+    <string name="q7r3">Chris Gayle</string>
+    <string name="q7r4">AB de Villiers</string>
+
+
+    <string-array name="planets_array">
+        <item>Question 1. Which Two Countries Played In The Finals Of The Last T20 World Cup in 2016?</item>
+        <item>Answer 1. West Indies and England</item>
+        <item>Earth</item>
+        <item>Mars</item>
+    </string-array>
+
+
+
+
+
+
+</resources>

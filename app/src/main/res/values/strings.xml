@@ -2,7 +2,7 @@
     <string name="app_name">Project3QuizApp</string>
     <string name="welcome">Welcome to the Cricket T20 World Cup Quiz!</string>
     <string name="hint">Please Enter Your Name.</string>
-    <string name="beginbutton">Begin quiz</string>
+    <string name="beginbutton">Start quiz</string>
     <string name="result">result</string>
 
     <string name="q1">1. Which Two Countries Played In The Finals Of The Last T20 World Cup in 2016? </string>

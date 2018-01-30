@@ -21,10 +21,11 @@ public class QuizActivity extends AppCompatActivity {
     private float score=0;
     public String summaryResult="";
     public String q3Ans="";
-    public String fullResult="";
+    public String fullResult="T20 WORLD CUP QUIZ RESULT:";
     private TextView WelcomeView;
     private int q1click=0;
     private int q2click=0;
+    private int q3click=0;
     private int q4click=0;
     private int q5click=0;
     private int q6click=0;
@@ -79,201 +80,257 @@ public class QuizActivity extends AppCompatActivity {
         ViewResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if(TextUtils.isEmpty(q3.getText().toString())){
-
-                }
                 countScore();
 
-                launchResult();
-            }
-        });
-    }
-    private void countScore(){
-        fullResult=fullResult+"Q1. Which Two Countries Played In The Finals Of The Last T20 World Cup in 2016?";
-        if(q1cb1.isChecked()&& q1cb2.isChecked()){
-            score=0;
-            q1click=2;
-            fullResult=fullResult+"\n"+"Your Ans 1. South Africa and West Indies"+"\n"+"Correct Answer: West Indies and England";
+                if(q1click!=2){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please Check Two Boxes For Question 1.", Toast.LENGTH_LONG);
+                    toast.show(); // display the Toast
+
+                }
+                if(q2click!=1){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please Answer Question 2.", Toast.LENGTH_LONG);
+                    toast.show(); // display the Toast
+                }
+
+
+                if(TextUtils.isEmpty(q3.getText().toString())){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please Answer Question 3.", Toast.LENGTH_LONG);
+                    toast.show(); // display the Toast
+
+                }
+                else{
+                    q3click=1;
+
+                }
+
+                if(q4click!=1){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please Answer Question 4.", Toast.LENGTH_LONG);
+                    toast.show(); // display the Toast
+
+                }
+                if(q5click!=1){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please Answer Question 5.", Toast.LENGTH_LONG);
+                    toast.show(); // display the Toast
+
+                }
+                if(q6click!=1){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please Answer Question 6.", Toast.LENGTH_LONG);
+                    toast.show(); // display the Toast
+
+                }
+                if(q7click!=1){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Please Answer Question 7.", Toast.LENGTH_LONG);
+                    toast.show(); // display the Toast
+
+                }
+                if(q1click==2&&q2click==1&&q3click==1&&q4click==1&&q5click==1&&q6click==1&&q7click==1) {
+
+
+                    saveSummary();
+                    launchResult();
+                }
+
+
+                };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    });}
+    private void countScore() {
+        fullResult = fullResult +"\n"+ "Q1. Which Two Countries Played In The Finals Of The Last T20 World Cup in 2016?";
+        if (q1cb1.isChecked() && q1cb2.isChecked()) {
+            score = 0;
+            q1click = 2;
+            fullResult = fullResult + "\n" + "Your Ans 1. South Africa and West Indies" + "\n" + "Correct Answer: West Indies and England";
         }
-        if(q1cb1.isChecked()&& q1cb3.isChecked()){
-            score=0;
-            q1click=2;
-            fullResult=fullResult+"\n"+"Your Ans 1. South Africa and India"+"\n"+"Correct Answer: West Indies and England";
+        if (q1cb1.isChecked() && q1cb3.isChecked()) {
+            score = 0;
+            q1click = 2;
+            fullResult = fullResult + "\n" + "Your Ans 1. South Africa and India" + "\n" + "Correct Answer: West Indies and England";
         }
-        if(q1cb1.isChecked()&& q1cb4.isChecked()){
-            score=0;
-            q1click=2;
-            fullResult=fullResult+"\n"+"Your Ans 1. South Africa and England"+"\n"+"Correct Answer: West Indies and England";
+        if (q1cb1.isChecked() && q1cb4.isChecked()) {
+            score = 0;
+            q1click = 2;
+            fullResult = fullResult + "\n" + "Your Ans 1. South Africa and England" + "\n" + "Correct Answer: West Indies and England";
         }
-        if(q1cb2.isChecked()&& q1cb3.isChecked()){
-            score=0;
-            q1click=2;
-            fullResult=fullResult+"\n"+"Your Ans 1. West Indies and India"+"\n"+"Correct Answer: West Indies and England";
+        if (q1cb2.isChecked() && q1cb3.isChecked()) {
+            score = 0;
+            q1click = 2;
+            fullResult = fullResult + "\n" + "Your Ans 1. West Indies and India" + "\n" + "Correct Answer: West Indies and England";
         }
-        if(q1cb2.isChecked()&& q1cb4.isChecked()){
-            score=1;
-            q1click=2;
-            fullResult=fullResult+"\n"+"Your Ans 1. West Indies and England"+"\n"+"Correct Answer: West Indies and England, Well done!";
+        if (q1cb2.isChecked() && q1cb4.isChecked()) {
+            score = 1;
+            q1click = 2;
+            fullResult = fullResult + "\n" + "Your Ans 1. West Indies and England" + "\n" + "Correct Answer: West Indies and England, Well done!";
         }
-        if(q1cb3.isChecked()&& q1cb4.isChecked()){
-            score=0;
-            q1click=2;
-            fullResult=fullResult+"\n"+"Your Ans 1. India and England"+"\n"+"Correct Answer: West Indies and England";
+        if (q1cb3.isChecked() && q1cb4.isChecked()) {
+            score = 0;
+            q1click = 2;
+            fullResult = fullResult + "\n" + "Your Ans 1. India and England" + "\n" + "Correct Answer: West Indies and England";
         }
-        fullResult=fullResult+"\n"+"Q2. Who Is The Current Cricket World T20   Champion?";
-        if(q2r1.isChecked()){
-            score=score+0;
-            q2click=1;
-            fullResult=fullResult+"\n"+"Your Ans 2. South Africa"+"\n"+"Correct Answer: West Indies";
+        fullResult = fullResult + "\n" + "Q2. Who Is The Current Cricket World T20   Champion?";
+        if (q2r1.isChecked()) {
+            score = score + 0;
+            q2click = 1;
+            fullResult = fullResult + "\n" + "Your Ans 2. South Africa" + "\n" + "Correct Answer: West Indies";
         }
 
-        if(q2r2.isChecked()){
-            score=score+1;
-            q2click=1;
-            fullResult=fullResult+"\n"+"Your Ans 2. West Indies"+"\n"+"Correct Answer: West Indies,Well done!";
+        if (q2r2.isChecked()) {
+            score = score + 1;
+            q2click = 1;
+            fullResult = fullResult + "\n" + "Your Ans 2. West Indies" + "\n" + "Correct Answer: West Indies,Well done!";
         }
-        if(q2r3.isChecked()){
-            score=score+0;
-            q2click=1;
-            fullResult=fullResult+"\n"+"Your Ans 2. India"+"\n"+"Correct Answer: West Indies";
+        if (q2r3.isChecked()) {
+            score = score + 0;
+            q2click = 1;
+            fullResult = fullResult + "\n" + "Your Ans 2. India" + "\n" + "Correct Answer: West Indies";
         }
-        if(q2r4.isChecked()){
-            score=score+0;
-            q2click=1;
-            fullResult=fullResult+"\n"+"Your Ans 2. Australia"+"\n"+"Correct Answer: West Indies";
+        if (q2r4.isChecked()) {
+            score = score + 0;
+            q2click = 1;
+            fullResult = fullResult + "\n" + "Your Ans 2. Australia" + "\n" + "Correct Answer: West Indies";
         }
-        fullResult=fullResult+"\n"+"Q3. Who Was The Man Of The Tournament In 2016 World Cup?";
-        q3Ans=q3.getText().toString();
-        String correctAns="Virat Kohli";
-        if(q3Ans.equals(correctAns)){
-            score=score+1;
-            fullResult=fullResult+"\n"+"Your Ans 3."+q3Ans+"\n"+"Correct Answer: Virat Kohli, Well done!";
-        }
-        else {
-            score=score+0;
-            fullResult=fullResult+"\n"+"Your Ans 3."+q3Ans+"\n"+"Correct Answer: Virat Kohli";
-        }
-        fullResult=fullResult+"\n"+"Q4. Who Scored The Most Runs In All T20 World Cups?";
+        fullResult = fullResult + "\n" + "Q3. Who Was The Man Of The Tournament In 2016 World Cup?";
+        q3Ans = q3.getText().toString();
+        String correctAns = "Virat Kohli";
+        if (q3Ans.equals(correctAns)) {
+            score = score + 1;
+            fullResult = fullResult + "\n" + "Your Ans 3." + q3Ans + "\n" + "Correct Answer: Virat Kohli, Well done!";
+        } else {
+            score = score + 0;
 
-        if(q4r1.isChecked()){
-            score=score+0;
-            q4click=1;
-            fullResult=fullResult+"\n"+"Your Ans 4. Chris Gayle"+"\n"+"Correct Answer: DPMD Jayawardene";
+            fullResult = fullResult + "\n" + "Your Ans 3." + q3Ans + "\n" + "Correct Answer: Virat Kohli";
         }
-        if(q4r2.isChecked()){
-            score=score+0;
-            q4click=1;
-            fullResult=fullResult+"\n"+"Your Ans 4. Virat Kohli"+"\n"+"Correct Answer: DPMD Jayawardene";
+        fullResult = fullResult + "\n" + "Q4. Who Scored The Most Runs In All T20 World Cups?";
+
+        if (q4r1.isChecked()) {
+            score = score + 0;
+            q4click = 1;
+            fullResult = fullResult + "\n" + "Your Ans 4. Chris Gayle" + "\n" + "Correct Answer: DPMD Jayawardene";
         }
-        if(q4r3.isChecked()){
-            score=score+1;
-            q4click=1;
-            fullResult=fullResult+"\n"+"Your Ans 4. DPMD Jayawardene "+"\n"+"Correct Answer: DPMD Jayawardene, Well done!";
+        if (q4r2.isChecked()) {
+            score = score + 0;
+            q4click = 1;
+            fullResult = fullResult + "\n" + "Your Ans 4. Virat Kohli" + "\n" + "Correct Answer: DPMD Jayawardene";
         }
-        if(q4r4.isChecked()){
-            score=score+0;
-            q4click=1;
-            fullResult=fullResult+"\n"+"Your Ans 4. AB de Villiers"+"\n"+"Correct Answer: DPMD Jayawardene";
+        if (q4r3.isChecked()) {
+            score = score + 1;
+            q4click = 1;
+            fullResult = fullResult + "\n" + "Your Ans 4. DPMD Jayawardene " + "\n" + "Correct Answer: DPMD Jayawardene, Well done!";
         }
-        fullResult=fullResult+"\n"+"Q5. Who Took The Most Wickets In All T20 World Cups?";
-        if(q5r1.isChecked()) {
+        if (q4r4.isChecked()) {
+            score = score + 0;
+            q4click = 1;
+            fullResult = fullResult + "\n" + "Your Ans 4. AB de Villiers" + "\n" + "Correct Answer: DPMD Jayawardene";
+        }
+        fullResult = fullResult + "\n" + "Q5. Who Took The Most Wickets In All T20 World Cups?";
+        if (q5r1.isChecked()) {
             score = score + 0;
             q5click = 1;
             fullResult = fullResult + "\n" + "Your Ans 5. Dale Steyn" + "\n" + "Correct Answer: Shahid Afridi";
         }
-        if(q5r2.isChecked()) {
+        if (q5r2.isChecked()) {
             score = score + 0;
             q5click = 1;
             fullResult = fullResult + "\n" + "Your Ans 5. Lasith Malinga" + "\n" + "Correct Answer: Shahid Afridi";
         }
-        if(q5r3.isChecked()) {
+        if (q5r3.isChecked()) {
             score = score + 1;
             q5click = 1;
             fullResult = fullResult + "\n" + "Your Ans 5. Shahid Afridi" + "\n" + "Correct Answer: Shahid Afridi, Well done!";
         }
-        if(q5r4.isChecked()) {
+        if (q5r4.isChecked()) {
             score = score + 0;
             q5click = 1;
             fullResult = fullResult + "\n" + "Your Ans 5. Saeed Ajamal" + "\n" + "Correct Answer: Shahid Afridi";
         }
-        fullResult=fullResult+"\n"+"Q6. Who Took The Most Catches In All T20 World Cups?";
-        if(q6r1.isChecked()) {
+        fullResult = fullResult + "\n" + "Q6. Who Took The Most Catches In All T20 World Cups?";
+        if (q6r1.isChecked()) {
             score = score + 0;
             q6click = 1;
             fullResult = fullResult + "\n" + "Your Ans 5. MJ Guptil" + "\n" + "Correct Answer: AB de Villiers";
         }
-        if(q6r2.isChecked()) {
+        if (q6r2.isChecked()) {
             score = score + 1;
             q6click = 1;
             fullResult = fullResult + "\n" + "Your Ans 5. AB de Villiers" + "\n" + "Correct Answer: AB de Villiers,Well done!";
         }
-        if(q6r3.isChecked()) {
+        if (q6r3.isChecked()) {
             score = score + 0;
             q6click = 1;
             fullResult = fullResult + "\n" + "Your Ans 5. DA Warner" + "\n" + "Correct Answer: AB de Villiers";
         }
-        if(q6r4.isChecked()) {
+        if (q6r4.isChecked()) {
             score = score + 0;
             q6click = 1;
             fullResult = fullResult + "\n" + "Your Ans 5. DJ Bravo" + "\n" + "Correct Answer: AB de Villiers";
         }
-        fullResult=fullResult+"\n"+"7. Who Hit The Most Sixes In All T20 World Cups?";
-        if(q7r1.isChecked()) {
+        fullResult = fullResult + "\n" + "7. Who Hit The Most Sixes In All T20 World Cups?";
+        if (q7r1.isChecked()) {
             score = score + 0;
             q7click = 1;
             fullResult = fullResult + "\n" + "Your Ans 5. Yuvraj Singh" + "\n" + "Correct Answer: Chris Gayle";
         }
-        if(q7r2.isChecked()) {
+        if (q7r2.isChecked()) {
             score = score + 0;
             q7click = 1;
             fullResult = fullResult + "\n" + "Your Ans 5. SR Watson" + "\n" + "Correct Answer: Chris Gayle";
         }
-        if(q7r3.isChecked()) {
+        if (q7r3.isChecked()) {
             score = score + 1;
             q7click = 1;
             fullResult = fullResult + "\n" + "Your Ans 5. Chris Gayle " + "\n" + "Correct Answer: Chris Gayle, Well done!";
         }
-        if(q7r4.isChecked()) {
+        if (q7r4.isChecked()) {
             score = score + 0;
             q7click = 1;
             fullResult = fullResult + "\n" + "Your Ans 5. Yuvraj Singh" + "\n" + "Correct Answer: Chris Gayle";
+            Log.i("QuizActivity",fullResult);
         }
-
-        Log.i("QuizActivity",fullResult);
-
+    }
 
 
+
+
+     private void saveSummary(){
         Bundle extras=getIntent().getExtras();
         String name=extras.getString("Name");
 
-        //DecimalFormat df = new DecimalFormat("#.00");
-        //double percent=0.254874;
-        //df.format(per);
-        //percent=df.format(percent);
+
         float percent=(score/7)*100;
         percent=Math.round(percent);
         if(score<5){
-            summaryResult=summaryResult+"Nice Try "+name+"!"+"\n"+"You Have Scored  "+Math.round(score)+" Out Of 7 Points!"+"\n"+"Your Score Is "+percent+" Percent!";
+            summaryResult=summaryResult+"Nice Try "+name+"!"+"\n"+"You Have Scored  "+Math.round(score)+" Out Of 7 Points In T20 World Cup Quiz!"+"\n"+"Your Score Is "+percent+" Percent!";
 
         }
         if(score>4){
-            summaryResult=summaryResult+"Well Done "+name+"!"+"\n"+"You Have Scored  "+Math.round(score)+" Out Of 7 Points!"+"\n"+"Your Score Is "+percent+" Percent!";
+            summaryResult=summaryResult+"Well Done "+name+"!"+"\n"+"You Have Scored  "+Math.round(score)+" Out Of 7 Points In T20 World Cup Quiz!"+"\n"+"Your Score Is "+percent+" Percent!";
 
         }
-        Log.i("QuizActivity",summaryResult);
-
-
-
-
-
+        //Log.i("QuizActivity",summaryResult);
 
     }
     private void launchResult() {
 
+        Bundle extras=getIntent().getExtras();
+        String name=extras.getString("Name");
+
         Intent intent = new Intent(this, ResultActivity.class);
         intent.putExtra("summary",summaryResult);
         intent.putExtra("answers",fullResult);
+        intent.putExtra("name",name);
         startActivity(intent);
     }
 }

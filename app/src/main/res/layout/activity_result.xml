@@ -7,17 +7,23 @@
     android:layout_height="match_parent"
     android:background="@drawable/logo1"
     tools:context="com.example.android.project3quizapp.ResultActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:id="@+id/scrollDisplay"
+        android:layout_height="wrap_content"
+        >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#CCFFFFFF"
+
 
         >
         <TextView
             android:layout_width="match_parent"
             android:id="@+id/resultdiplay"
             android:layout_height="wrap_content"
-            android:textSize="26sp"
+            android:textSize="24sp"
             android:layout_alignParentTop="true"
 
             android:fontFamily="sans-serif-light"
@@ -28,26 +34,27 @@
 
 
 
-        <ScrollView
-                 android:layout_width="match_parent"
-                 android:id="@+id/scrollDisplay"
-                 android:layout_below="@id/resultdiplay"
-                 android:layout_height="wrap_content"
-            >
+
+
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/answerdiplay"
+                android:layout_below="@id/resultdiplay"
+                android:fontFamily="sans-serif-light"
                 android:text=""
 
                 />
-        </ScrollView>
+
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/answerdiplay"
+
             android:id="@+id/buttongrp"
-            android:layout_below="@id/scrollDisplay"
+            android:layout_alignParentBottom="true"
             >
 
 
@@ -92,6 +99,7 @@
         </RelativeLayout>
 
    </RelativeLayout>
+    </ScrollView>
 
 
 

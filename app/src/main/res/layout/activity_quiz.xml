@@ -33,7 +33,7 @@
             android:paddingBottom="16dp"
             android:layout_marginLeft="16dp"
             android:fontFamily="sans-serif-light"
-            android:textSize="26sp"
+            android:textSize="24sp"
             android:textColor="@color/colorAccent"
             android:textStyle="bold"
             android:text=""/>

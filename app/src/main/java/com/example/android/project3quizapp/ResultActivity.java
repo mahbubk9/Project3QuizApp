@@ -35,7 +35,7 @@ public class ResultActivity extends AppCompatActivity {
         Answer = (Button) findViewById(R.id.answers);
         Bundle extras = getIntent().getExtras();
         String summaryResult = extras.getString("summary");
-        String answers = extras.getString("answers");
+        final String answers = extras.getString("answers");
         SummaryView.setText(summaryResult);
         //ANSWER BUTTON
         Answer.setOnClickListener(new View.OnClickListener() {

@@ -21,7 +21,7 @@ public class ResultActivity extends AppCompatActivity {
     private Button Retake;
     private Button Share;
     int answerClickCount=0;
-    static final String answersText="Answers";
+    static final String ANSWERS_TEXT="Answers";
 
     //ON CREATE METHOD
     @Override
@@ -35,7 +35,7 @@ public class ResultActivity extends AppCompatActivity {
         Answer = (Button) findViewById(R.id.answers);
         Bundle extras = getIntent().getExtras();
         String summaryResult = extras.getString("summary");
-        final String answers = extras.getString("answers");
+        String answers = extras.getString("answers");
         SummaryView.setText(summaryResult);
         //ANSWER BUTTON
         Answer.setOnClickListener(new View.OnClickListener() {
@@ -87,7 +87,7 @@ public class ResultActivity extends AppCompatActivity {
         if(answerClickCount>0){
             Bundle extras = getIntent().getExtras();
             final String answers = extras.getString("answers");
-            savedInstanceState.putString(answersText,answers);
+            savedInstanceState.putString(ANSWERS_TEXT,answers);
         }
 
 
@@ -98,7 +98,7 @@ public class ResultActivity extends AppCompatActivity {
     public void onRestoreInstanceState(Bundle savedInstanceState) {
         // Always call the superclass so it can restore the view hierarchy
         super.onRestoreInstanceState(savedInstanceState);
-        String answers=savedInstanceState.getString(answersText);
+        String answers=savedInstanceState.getString(ANSWERS_TEXT);
         AnswerView.setText(answers);
         answerClickCount=answerClickCount+1;
 

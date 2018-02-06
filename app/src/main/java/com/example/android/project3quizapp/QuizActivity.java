@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 public class QuizActivity extends AppCompatActivity {
 
+    //GLOBAL VARIABLES
     private float score=0;
     public String summaryResult="";
     public String q3Ans="";
@@ -30,13 +31,12 @@ public class QuizActivity extends AppCompatActivity {
     private int q5click=0;
     private int q6click=0;
     private int q7click=0;
-
     private CheckBox q1cb1,q1cb2,q1cb3,q1cb4;
     private RadioButton q2r1,q2r2,q2r3, q2r4,q4r1,q4r2,q4r3,q4r4,q5r1,q5r2,q5r3,q5r4,q6r1,q6r2,q6r3,q6r4,q7r1,q7r2,q7r3,q7r4;
     private EditText q3;
     private Button ViewResult;
 
-
+    //ON CREATE METHOD
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,15 +68,12 @@ public class QuizActivity extends AppCompatActivity {
         q7r3=(RadioButton)findViewById(R.id.q7r3);
         q7r4=(RadioButton)findViewById(R.id.q7r4);
         ViewResult = (Button) findViewById(R.id.resultView);
-
-
-
-
+        //GETTING NAME
         Bundle extras=getIntent().getExtras();
         String name=extras.getString("Name");
         WelcomeView.setText("Welcome "+name+"!"+"\n"+"CheckOut Your T20 World Cup Knowledge !");
 
-
+        //RESULT BUTTON
         ViewResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -148,6 +145,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
     });}
+    //SCORING METHOD
     private void countScore() {
         fullResult = fullResult +"\n"+ "Q1. Which Two Countries Played In The Finals Of The Last T20 World Cup in 2016?";
         if (q1cb1.isChecked() && q1cb2.isChecked()) {
@@ -303,7 +301,7 @@ public class QuizActivity extends AppCompatActivity {
 
 
 
-
+     //SAVING SUMMARY RESULT FOR RESULT PAGE
      private void saveSummary(){
         Bundle extras=getIntent().getExtras();
         String name=extras.getString("Name");
@@ -322,6 +320,7 @@ public class QuizActivity extends AppCompatActivity {
         //Log.i("QuizActivity",summaryResult);
 
     }
+    //LAUNCHING RESULT PAGE
     private void launchResult() {
 
         Bundle extras=getIntent().getExtras();

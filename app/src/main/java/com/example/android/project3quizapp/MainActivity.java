@@ -10,16 +10,17 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    //GLOBAL VARIABLE
     private Button StartQuizButton;
     private EditText NameField;
-
+     //ON CREATE METHOD
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         StartQuizButton = (Button) findViewById(R.id.starQuiz);
         NameField = (EditText) findViewById(R.id.nameField);
-
+        //START BUTTON
         StartQuizButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-
+             //LAUNCHING QUIZ
             private void launchActivity() {
 
                 Intent intent = new Intent(getApplicationContext(), QuizActivity.class);

@@ -14,18 +14,20 @@ import java.util.Collection;
 import java.util.Arrays;
 
 public class ResultActivity extends AppCompatActivity {
+    //GLOBAL VARIABLES
     private TextView SummaryView;
     private TextView AnswerView;
     private Button Answer;
     private Button Retake;
     private Button Share;
+    int answerClickCount=0;
+    static final String answersText="Answers";
 
-
+    //ON CREATE METHOD
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-
         SummaryView = (TextView) findViewById(R.id.resultdiplay);
         AnswerView = (TextView) findViewById(R.id.answerdiplay);
         Retake = (Button) findViewById(R.id.retake);
@@ -33,17 +35,20 @@ public class ResultActivity extends AppCompatActivity {
         Answer = (Button) findViewById(R.id.answers);
         Bundle extras = getIntent().getExtras();
         String summaryResult = extras.getString("summary");
-
         final String answers = extras.getString("answers");
         SummaryView.setText(summaryResult);
+        //ANSWER BUTTON
         Answer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                answerClickCount=answerClickCount+1;
+
                 AnswerView.setText(answers);
 
             }
 
         });
+        //RETAKE BUTTON
         Retake.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
@@ -57,9 +62,11 @@ public class ResultActivity extends AppCompatActivity {
             }
 
         });
+        //SHARE BUTTON
         Share.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+
                 Bundle extras = getIntent().getExtras();
                 String summaryResult = extras.getString("summary");
 
@@ -71,16 +78,30 @@ public class ResultActivity extends AppCompatActivity {
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     startActivity(intent);
                 }
-
-
-
             }
         });
+    }
+    //SAVED INSTANCE STATE
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        if(answerClickCount>0){
+            Bundle extras = getIntent().getExtras();
+            final String answers = extras.getString("answers");
+            savedInstanceState.putString(answersText,answers);
+        }
 
 
-
-
-
+        // Always call the superclass so it can save the view hierarchy state
+        super.onSaveInstanceState(savedInstanceState);
+    }
+    //RESTORE INSTANCE STATE
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        // Always call the superclass so it can restore the view hierarchy
+        super.onRestoreInstanceState(savedInstanceState);
+        String answers=savedInstanceState.getString(answersText);
+        AnswerView.setText(answers);
+        answerClickCount=answerClickCount+1;
 
     }
+
 }
